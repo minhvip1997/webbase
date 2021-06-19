@@ -19,28 +19,22 @@ function startCart() {
 start();
 startCart();
 
-function getCourses(callback) {
+function getCourses(courses) {
     fetch(courseApi)
         .then(function (response) {
             return response.json();
         })
-        .then(callback);
+        .then(data=>renderCourses(data));
 
 }
 
-function getCart(callback) {
+function getCart(cart) {
     fetch(courseApiCart)
         .then(function (response) {
             return response.json();
         })
-        .then(callback);
-        /*fetch(courseApiCart)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(cartItemsArray =>{
-            cartArray = cartItemsArray;
-            renderAllCartItems(cartArray)*/
+        .then(data=>renderCart(data));
+
 }
 
 
@@ -63,44 +57,37 @@ function renderCourses(courses) {
         `;
     });
     listCoursesBlock.innerHTML = htmls.join('');
-    var carts = listCoursesBlock.querySelectorAll('.addcart');
-    for(let i=0;carts.length;i++){
-        console.log("loop");
-    }
-    const addButton = listCoursesBlock.querySelectorAll('.addcart')
-    const findproduct = document.querySelector('#itemproduct');
-    
 
-
-    addButton.addEventListener('click', event => {
-        findproduct.innerHTML = ""
-
-        fetch("http://localhost:3000/listproduct", {
-            method: "POST",
-            headers: {
-                "ContentType": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                "product_id": courses.id,
-                "product_name": courses.name,
-                "price": courses.price,
-                "quantity": 1,
-                "total": courses.price
-            })
+    var add = listCoursesBlock.querySelector('.addcart');
+    add.addEventListener('click', event =>{
+        fetch('http://localhost:3000/listproduct', {
+        method : "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            product_id: 2,
+            product_name: "",
+            price: 0,
+            quantity: 0,
+            total: 0
         })
-        .then(response=>response.json())
-        .then(callback);
-        
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(data =>{
+            const dataArr =[];
+            dataArr.push(data);
+            renderCart(dataArr);
+        });
+        console.log(dataArr);
     })
-    console.log(body);
-
-
 }
 
 
 function renderCart(cart) {
-    var listCoursesBlock = document.querySelector('#itemproduct');
+    const listCartBlock = document.querySelector('#itemproduct');
     var htmls = cart.map(function (cart) {
         return `
         <tr>
@@ -126,77 +113,10 @@ function renderCart(cart) {
                                     </tr>
         `;
     });
-    listCoursesBlock.innerHTML = htmls.join('');
+    listCartBlock.innerHTML = htmls.join('');
     //var cart = listCoursesBlock.querySelector('.addcart');
     //console.log(cart);
 }
 
-
-/*fetch(courseApiCart)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(cartItemsArray =>{
-            cartArray = cartItemsArray;
-            renderAllCartItems(cartArray)
-});*/
-
-
-/*function renderAllCartItems(cartItemsArray){
-    cartItemsArray.forEach(cartItem => renderCartItem(cartItem))
-}*/
-
-/*function renderCartItem(cartItem){
-    const newLi = '';
-    const findproduct = document.querySelector("#itemproduct");
-    newLi.innerHTML =`
-    <tr>
-                                        <th></th>
-                                        <th>PRODUCT NAME</th>
-                                        <th>UNIT PRICE</th>
-                                        <th>QTY</th>
-                                        <th>Subtotal</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr id="itemproduct">
-                                        <td>                                        
-                                            <div class="img-sizer-container"><img src="images/item-images/img1-small.jpg" alt="img"></div>
-                                        </td>
-                                        <td class="item-description">
-                                            <h2>Peeky cropped</h2>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                                        </td>
-                                        <td class="checkout-price">€. ${cartItem.price}</td>
-                                        <td class="qty"><span></span><div>${cartItem.quantity}</div><span></span></td>
-                                        <td class="checkout-price">€. ${cartItem.total}</td>
-                                        <td><a href="#fake-link"><img src="images/close-red.png" alt="Delete"></a></td>
-                                    </tr>
-    `
-    findproduct.append(newLi);
-}*/
-
-/*function addToCart(id){
-
-    console.log(`Yo ${id}`);
-
-    var options ={
-        method: "POST",
-        header: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            cart_id:1,
-            product_id: id
-        })
-    };
-    console.log(options);
-    fetch(courseApiCart+'/'+id,options)
-    .then(function(response){
-        response.json();
-    })
-    .then(callback);
-
-}*/
 
 

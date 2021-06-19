@@ -1,96 +1,105 @@
 {
-    "newproducts": [
-        {
-            "id": 1,
-            "name": "Freestyle Wave FSW 1",
-            "price": 770.5,
-            "image": "img1.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Freestyle Wave FSW 2",
-            "price": 765,
-            "image": "img2.jpg"
-        },
-        {
-            "id": 3,
-            "name": "The White Collection SURFBOARD 2014",
-            "price": 1585,
-            "image": "img3.jpg"
-        },
-        {
-            "id": 4,
-            "name": "OG SCALLOP SOLID",
-            "price": 765,
-            "image": "img4.jpg"
-        },
-        {
-            "id": 5,
-            "name": "STRIPE 19 QS",
-            "price": 230.5,
-            "image": "img5.jpg"
-        },
-        {
-            "id": 6,
-            "name": "YOKE 19 QS",
-            "price": 1130.7,
-            "image": "img6.jpg"
-        }
-    ],
-    "topproducts": [
-        {
-            "id": 7,
-            "name": "ushingham Lightning 2014",
-            "price": 2960.95,
-            "image": "img7.jpg"
-        },
-        {
-            "id": 8,
-            "name": "CYPHER HEAT VES M",
-            "price": 849,
-            "image": "img8.jpg"
-        },
-        {
-            "id": 9,
-            "name": "SYNCRO WOMENS QS M",
-            "price": 1110.99,
-            "image": "img9.jpg"
-        }
-    ],
-    "saleproducts": [
-        {
-            "id": 10,
-            "name": "SYNCRO MENS QS M",
-            "price": 249.95,
-            "image": "img10.jpg"
-        },
-        {
-            "id": 11,
-            "name": "RAMOS - SHIRT-FOR-MEN",
-            "price": 250,
-            "image": "img11.jpg"
-        },
-        {
-            "id": 12,
-            "name": "SixSixOne Evo Wired Full Face",
-            "price": 1240,
-            "image": "img12.jpg"
-        }
-    ],
-    "listproduct": [
-        {
-            "product_id": 1,
-            "product_name": "",
-            "price": 0,
-            "quantity": 0,
-            "total": 0
-        },
-        {
-            "product_id": 2,
-            "product_name": "",
-            "price": 0,
-            "quantity": 0,
-            "total": 0
-        }
-    ]
+  "newproducts": [
+    {
+      "id": 1,
+      "name": "Freestyle Wave FSW 1",
+      "price": 770.5,
+      "image": "img1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Freestyle Wave FSW 2",
+      "price": 765,
+      "image": "img2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "The White Collection SURFBOARD 2014",
+      "price": 1585,
+      "image": "img3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "OG SCALLOP SOLID",
+      "price": 765,
+      "image": "img4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "STRIPE 19 QS",
+      "price": 230.5,
+      "image": "img5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "YOKE 19 QS",
+      "price": 1130.7,
+      "image": "img6.jpg"
+    }
+  ],
+  "topproducts": [
+    {
+      "id": 7,
+      "name": "ushingham Lightning 2014",
+      "price": 2960.95,
+      "image": "img7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "CYPHER HEAT VES M",
+      "price": 849,
+      "image": "img8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "SYNCRO WOMENS QS M",
+      "price": 1110.99,
+      "image": "img9.jpg"
+    }
+  ],
+  "saleproducts": [
+    {
+      "id": 10,
+      "name": "SYNCRO MENS QS M",
+      "price": 249.95,
+      "image": "img10.jpg"
+    },
+    {
+      "id": 11,
+      "name": "RAMOS - SHIRT-FOR-MEN",
+      "price": 250,
+      "image": "img11.jpg"
+    },
+    {
+      "id": 12,
+      "name": "SixSixOne Evo Wired Full Face",
+      "price": 1240,
+      "image": "img12.jpg"
+    }
+  ],
+  "listproduct": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "product_name": "",
+      "price": 0,
+      "quantity": 0,
+      "total": 0
+    },
+    {
+      "id": 2,
+      "product_id": 2,
+      "product_name": "",
+      "price": 0,
+      "quantity": 0,
+      "total": 0
+    },
+    {
+      "cart_id": 1,
+      "product_id": 4,
+      "price": 765,
+      "quantity": 1,
+      "id": 3
+    }
+  ]
 }
