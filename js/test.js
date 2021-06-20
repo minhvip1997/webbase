@@ -81,8 +81,10 @@ function renderCartItems(cartItem) {
                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                                         </td>
                                         <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>
+                                        
                                         <td class="qty">
-                                        <input class="cart-quantity-input quantity" type="number" id="id_form-0-quantity" name="quantity" min="1" max="5" value="${parseInt(cartItem.quantity)}">
+                                        <input class="cart-quantity-input quantity" type="number" id="id_form-0-quantity" name="quantity" min="1" max="5" value="${parseInt(cartItem.quantity)}">${parseInt(cartItem.quantity)}
+                                        </td>
                                         </td>
                                         <td class="checkout-total">€. ${cartItem.total}</td>
                                         <td>
@@ -93,24 +95,7 @@ function renderCartItems(cartItem) {
     `;
     findListOfItem.append(newLi)
 
-    var quantity = $('.quantity input');
-
-    $('.quantity a').click(function (event) {
-        quantity.val(+quantity.val() + 1);
-    });
-
-    var dec = $('.qty span:first-child');
-    var inc = $('.qty span:last-child');
-
-    dec.click(function (event) {
-        if (parseInt($(this).next().text()) > 0) {
-            $(this).next().text((parseInt(parseInt($(this).next().text())) - 1));
-        }
-    });
-
-    inc.click(function (event) {
-        $(this).prev().text((parseInt(parseInt($(this).prev().text())) + 1));
-    });
+    
 
     const removeButton = newLi.querySelector('.delete-button')
 
@@ -129,14 +114,19 @@ function renderCartItems(cartItem) {
     });
 
     const updateButton = newLi.querySelector('.update-button')
-    var a = newLi.getElementsByClassName('qty')[0].innerHTML;
+    /*var a = newLi.getElementsByTagName("input")[0].innerText;
     var b = newLi.getElementsByClassName('checkout-price')[0].innerHTML;
-
-    console.log(a)
+    const value_input = $("input[class='cart-quantity-input quantity']").val();
+    console.log(value_input)
     console.log(b)
-
+    const input = document.getElementById("id_form-0-quantity");
+    let inputValue = input.value;
+    console.log(inputValue)*/
     updateButton.addEventListener('click', event => {
-        var c = parseInt(newLi.getElementsByTagName("input")[0].getAttribute("value"))
+        const parent = event.target.parentElement;
+        let titlequantity = parent.querySelector('.cart-quantity-input quantity').value;
+        value_input = titlequantity;
+        console.log(value_input);
         fetch(`http://localhost:3000/listproduct/${cartItem.id}`, {
             method: 'PATCH',
             headers: {
@@ -144,8 +134,8 @@ function renderCartItems(cartItem) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                quantity: parseInt(newLi.getElementsByTagName("input")[0].getAttribute("value")),
-                total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * parseInt(newLi.getElementsByTagName("input")[0].getAttribute("value"))
+                quantity: parseInt(value_input),
+                total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * parseInt(value_input)
             }),
 
         })
