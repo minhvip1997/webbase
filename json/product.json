@@ -79,27 +79,25 @@
   ],
   "listproduct": [
     {
-      "id": 1,
-      "product_id": 1,
-      "product_name": "",
-      "price": 0,
-      "quantity": 0,
-      "total": 0
+      "product_id": 6,
+      "price": 1130.7,
+      "quantity": 2,
+      "total": 2261.4,
+      "id": 6
     },
     {
-      "id": 2,
-      "product_id": 2,
-      "product_name": "",
-      "price": 0,
-      "quantity": 0,
-      "total": 0
-    },
-    {
-      "cart_id": 1,
       "product_id": 4,
       "price": 765,
-      "quantity": 1,
-      "id": 3
+      "quantity": 2,
+      "total": 1530,
+      "id": 8
+    },
+    {
+      "product_id": 2,
+      "price": 765,
+      "quantity": 2,
+      "total": 1530,
+      "id": 9
     }
   ]
 }
