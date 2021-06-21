@@ -85,6 +85,10 @@ input {
 	position: relative;
 }
 
+.form-message {
+	color: red;
+}
+
 .slide {
 	height: 700px;
 	width: 100%;

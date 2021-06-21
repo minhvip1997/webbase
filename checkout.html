@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>SufHouse</title>
@@ -14,7 +15,9 @@
         <script src="js/IE9.js"></script>
     <![endif]-->
     <script src="js/script.js"></script>
+    <script src="js/validator.js"></script>
 </head>
+
 <body>
     <div class="main-container cart">
         <div class="header clearfix img-sizer-container">
@@ -36,11 +39,11 @@
                         </ul>
                     </li>
                 </ul>
-            </div>           
+            </div>
         </div>
         <div class="main sizer clearfix no-margin-top">
             <div class="left-side">
-                <div class="main-menu">        
+                <div class="main-menu">
                     <ul>
                         <li>menu</li>
                         <li><a href="contact.html">about</a></li>
@@ -53,29 +56,29 @@
                         <li><a href="shopcart.html">brands</a></li>
                         <li><a href="shopcart.html">blog</a></li>
                         <li><a href="shopcart.html">gadgets</a></li>
-                        <li><a href="shopcart.html">contact</a></li>
+                        <li><a href="contact.html">contact</a></li>
                     </ul>
                 </div>
                 <div class="now-open clearfix img-sizer-container">
                     <img src="images/nowisopen_01.jpg" alt="background">
-                    <h2>Now is open!</h2>
+
                 </div>
-              <div class="articles-experts">
-                <h2>Articles Experts</h2>
-                <ul class="reviews">
-                    <li><a href="#fake-link">LG Spectrum review</a></li>
-                    <li><a href="#fake-link">Verizon Droid Xyboard 8.2 and 10.1 review</a></li>
-                    <li><a href="#fake-link">Mac mini review (mid 2011)</a></li>
-                    <li><a href="#fake-link">Wacom Inkling review</a></li>
-                    <li><a href="#fake-link">Sonos Play:3 review</a></li>
-                    <li><a href="#fake-link">HTC Radar 4G review</a></li>
-                    <li><a href="#fake-link">Canon PowerShot S100</a></li>
-                </ul>
-                <a href="#fake-link">view all →</a>    
-            </div>
+                <div class="articles-experts">
+                    <h2>Articles Experts</h2>
+                    <ul class="reviews">
+                        <li><a href="#fake-link">LG Spectrum review</a></li>
+                        <li><a href="#fake-link">Verizon Droid Xyboard 8.2 and 10.1 review</a></li>
+                        <li><a href="#fake-link">Mac mini review (mid 2011)</a></li>
+                        <li><a href="#fake-link">Wacom Inkling review</a></li>
+                        <li><a href="#fake-link">Sonos Play:3 review</a></li>
+                        <li><a href="#fake-link">HTC Radar 4G review</a></li>
+                        <li><a href="#fake-link">Canon PowerShot S100</a></li>
+                    </ul>
+                    <a href="#fake-link">view all →</a>
+                </div>
             </div>
             <div class="main-content clearfix">
-                <div class="new-product clearfix">        
+                <div class="new-product clearfix">
                     <div class="content-header clearfix">
                         <ul class="breadcrumbs">
                             <li><a href="index.html">Home</a></li>
@@ -122,20 +125,34 @@
                                 <h1>member?</h1>
                                 <h4>already registered?</h4>
                                 <h3>blease login below:</h3>
-                                <form action="#fake-link" method="post" name="login">
-                                    <div>
+                                <form action="#fake-link" method="post" name="login" id="form-2">
+                                    <div class="form-group">
                                         <label for="login_email">Email Address<span>*</span></label>
                                         <input type="text" name="email" id="login_email">
+                                        <span class="form-message"></span>
                                     </div>
-                                    <div>
+                                    <div class="form-group">
                                         <label for="passwd">Password<span>*</span></label>
                                         <input type="password" name="passwd" id="passwd">
+                                        <span class="form-message"></span>
                                     </div>
                                     <span class="req-fields">*Required fields</span>
                                     <a href="#fake-link" class="forgot-pass">Forgot your password?</a>
                                     <input type="submit" value="login">
                                 </form>
                             </div>
+                            <script>
+                                Validator({
+                                    form: '#form-2',
+                                    errorSelector: '.form-message',
+                                    rules: [
+                                        Validator.isRequired('#login_email'),
+                                        Validator.isRequired('#passwd'),
+                                        Validator.isEmail('#login_email'),
+                                        Validator.minLength('#passwd', 6)
+                                    ]
+                                });
+                            </script>
                             <div class="review-cart clearfix">
                                 <h1>REVIEW YOUR CART</h1>
                                 <div class="clearfix">
@@ -157,7 +174,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#fake-link" method="get" name="ship_pay">
+                        <form action="#fake-link" method="get" name="ship_pay" id="form-3">
                             <div class="shipping-payment clearfix">
                                 <div class="shipp-header clearfix">
                                     <h1>YOUR SHIPPING INFORMATION</h1>
@@ -168,29 +185,35 @@
                                     <div class="label-wrapper">
                                         <input type="text" name="email" id="ship-email" class="text-field" required>
                                         <label for="ship-email">e.g. name@email.com</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <h2 class="field-title">Full name*</h2>
                                     <div class="label-wrapper">
                                         <input type="text" name="surname" id="ship-name" class="text-field" required>
                                         <label for="ship-name">first name</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <div class="label-wrapper">
                                         <input type="text" name="name" id="ship-surname" class="text-field" required>
                                         <label for="ship-surname">surname</label>
+                                        <span class="form-message"></span>
                                     </div>
-                                     <h2 class="field-title">Company</h2>
+                                    <h2 class="field-title">Company</h2>
                                     <div class="label-wrapper">
                                         <input type="text" name="company" id="company" class="text-field">
                                         <label for="company">e.g. your company (optional)</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <h2 class="field-title">Address*</h2>
                                     <div class="label-wrapper">
                                         <input type="text" name="adr1" id="adr-1" class="text-field">
                                         <label for="adr-1">address line 1</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <div class="label-wrapper">
                                         <input type="text" name="adr2" id="adr-2" class="text-field">
                                         <label for="adr-2">address line 1</label>
+                                        <span class="form-message"></span>
                                     </div>
                                 </div>
                                 <div class="column">
@@ -198,26 +221,32 @@
                                     <div class="label-wrapper">
                                         <input type="text" name="postal" id="postal" class="text-field" required>
                                         <label for="postal">e.g. 201000</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <h2 class="field-title">Town / city*</h2>
                                     <div class="label-wrapper">
                                         <input type="text" name="town" id="town" class="text-field" required>
                                         <label for="town">e.g. Los Angeles</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <h2 class="field-title">state / country*</h2>
-                                    <select name="state" required>
-                                        <option value="" selected>select</option>
-                                        <option value="st1">state 1</option>
-                                        <option value="st2">state 2</option>
-                                        <option value="st3">state 2</option>
-                                    </select>
+                                    <div class="label-wrapper">
+                                        <select name="state" required id="state">
+                                            <option value="" selected>select</option>
+                                            <option value="VietNam">Viet Nam</option>
+                                        </select>
+                                        <span class="form-message"></span>
+                                    </div>
                                     <h2 class="field-title">Province*</h2>
-                                    <select name="province" required>
-                                        <option value="" selected>select</option>
-                                        <option value="pr1">Province 1</option>
-                                        <option value="pr2">Province 2</option>
-                                        <option value="pr3">Province 3</option>
-                                    </select>
+                                    <div class="label-wrapper">
+                                        <select name="province" required id="province">
+                                            <option value="" selected>select</option>
+                                            <option value="DaNang">Da Nang</option>
+                                            <option value="SaiGon">Sai Gon</option>
+                                            <option value="HaNoi">Ha Noi</option>
+                                        </select>
+                                        <span class="form-message"></span>
+                                    </div>
                                     <div class="tel-wrapper clearfix">
                                         <h2 class="field-title">Mobile*</h2>
                                         <div>
@@ -226,11 +255,12 @@
                                                 <option value="38">+38</option>
                                                 <option value="37">+37</option>
                                                 <option value="36">+36</option>
-                                            </select>  
-                                        </div> 
+                                            </select>
+                                        </div>
                                         <div class="label-wrapper">
                                             <input type="text" name="phone" id="phone" class="text-field" required>
                                             <label for="phone">phone</label>
+                                            <span class="form-message"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -240,6 +270,7 @@
                                         <input type="text" name="card" id="card" class="text-field" required>
                                         <label for="card">type your credit card number</label>
                                         <div class="cards-image"><img src="images/cards-icons.png" alt="Cards"></div>
+                                        <span class="form-message"></span>
                                     </div>
                                     <h2 class="field-title">expiration date*</h2>
                                     <div class="clearfix exp-date">
@@ -276,6 +307,7 @@
                                         <div class="label-wrapper">
                                             <input type="text" name="ccv" id="ccv" class="text-field" required>
                                             <label for="ccv">000</label>
+                                            <span class="form-message"></span>
                                         </div>
                                         <a href="#fake-link" class="what-this">What this?</a>
                                     </div>
@@ -283,124 +315,161 @@
                                     <div class="label-wrapper">
                                         <input type="text" name="card_name" id="card-name" class="text-field" required>
                                         <label for="card-name">name on card</label>
+                                        <span class="form-message"></span>
                                     </div>
                                     <span class="value-privacy">We value your privacy</span>
-                                </div> 
+                                </div>
                             </div>
                             <div class="check-container clearfix">
                                 <div class="checkbox-wrapper clearfix">
                                     <input type="checkbox" name="remember_ship" id="remember-as-ship" checked>
                                     <label for="remember-as-ship" class="active"></label>
                                     <h3>REMEMBER ADDRESS same as shipping</h3>
+                                    <span class="form-message"></span>
                                 </div>
                                 <div class="checkbox-wrapper clearfix">
                                     <input type="checkbox" name="remember_addr" id="remember-addr">
                                     <label for="remember-addr"></label>
                                     <h3>REMEMBER THIS ADDRESS NEXT TIMe</h3>
+                                    <span class="form-message"></span>
                                 </div>
                                 <div class="checkbox-wrapper clearfix">
                                     <input type="checkbox" name="remember_card" id="remember-card">
                                     <label for="remember-card"></label>
                                     <h3>REMEMBER THIS CARD INFO NEXT TIME</h3>
+                                    <span class="form-message"></span>
                                 </div>
                             </div>
                             <div class="place-order clearfix">
                                 <p>
-                                    By clicking "Place my order", you agree to our Terms of Use and Privacy Policy, including the transfer of your personal information to Italy, a jurisdiction that may not provide an equivalent level of data protection to the laws in your home country.
+                                    By clicking "Place my order", you agree to our Terms of Use and Privacy Policy,
+                                    including the transfer of your personal information to Italy, a jurisdiction that
+                                    may not provide an equivalent level of data protection to the laws in your home
+                                    country.
                                 </p>
                                 <input type="submit" value="place order">
                             </div>
                         </form>
+                        <script>
+                            Validator({
+                                form: '#form-3',
+                                errorSelector: '.form-message',
+                                rules: [
+                                    Validator.isRequired('#ship-email'),
+                                    Validator.isRequired('#passwd'),
+                                    Validator.isEmail('#ship-email'),
+                                    Validator.minLength('#passwd', 6),
+                                    Validator.isRequired('#ship-name'),
+                                    Validator.isRequired('#ship-surname'),
+                                    Validator.isRequired('#adr-1'),
+                                    Validator.isRequired('#adr-2'),
+                                    Validator.isRequired('#town'),
+                                    Validator.isPostCode('#postal'),
+                                    Validator.isMobile('#phone'),
+                                    Validator.isPostCode('#ccv'),
+                                    Validator.isMobile('#card'),
+                                    Validator.isRequired('#province'),
+                                    Validator.isRequired('#state'),
+                                ]
+                            });
+                        </script>
                     </div>
                 </div>
-            </div>   
+            </div>
+        </div>
     </div>
-    </div>
-     <div class="footer">
-            <div class="social clearfix sizer">
+    <div class="footer">
+        <div class="social clearfix sizer">
+            <ul>
+                <li><a href="#fake-link" class="fb"></a></li>
+                <li><a href="#fake-link" class="tw"></a></li>
+                <li><a href="#fake-link" class="pn"></a></li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="footer-content sizer clearfix">
                 <ul>
-                    <li><a href="#fake-link" class="fb"></a></li>
-                    <li><a href="#fake-link" class="tw"></a></li>
-                    <li><a href="#fake-link" class="pn"></a></li>
+                    <li>Category</li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="contact.html">about us</a></li>
+                    <li><a href="#fake-link">eshop</a></li>
+                    <li><a href="#fake-link">features</a></li>
+                    <li><a href="#fake-link">new collections</a></li>
+                    <li><a href="#fake-link">blog</a></li>
+                    <li><a href="contact.html">contact</a></li>
                 </ul>
-            </div>
-            <div class="wrapper">
-                <div class="footer-content sizer clearfix">
-                    <ul>
-                        <li>Category</li>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="contact.html">about us</a></li>
-                        <li><a href="#fake-link">eshop</a></li>
-                        <li><a href="#fake-link">features</a></li>
-                        <li><a href="#fake-link">new collections</a></li>
-                        <li><a href="#fake-link">blog</a></li>
-                        <li><a href="contact.html">contact</a></li>
-                    </ul>
-                    <ul>
-                        <li>Our account</li>
-                        <li><a href="#fake-link">your account</a></li>
-                        <li><a href="#fake-link">personal information</a></li>
-                        <li><a href="#fake-link">addresses</a></li>
-                        <li><a href="#fake-link">discount</a></li>
-                        <li><a href="#fake-link">history</a></li>
-                        <li><a href="#fake-link">addesses</a></li>
-                        <li><a href="#fake-link">search terms</a></li>
-                    </ul>
-                    <ul>
-                        <li>Our support</li>
-                        <li><a href="#fake-link">site map</a></li>
-                        <li><a href="#fake-link">search terms</a></li>
-                        <li><a href="#fake-link">advanced search</a></li>
-                        <li><a href="#fake-link">site map</a></li>
-                        <li><a href="#fake-link">contact</a></li>
-                        <li><a href="#fake-link">mobile</a></li>
-                        <li><a href="#fake-link">addresses</a></li>
-                    </ul>
-                    <div class="newsteller">
-                        <h2>newsteller</h2>
-                        <p>Join thousands of other people subscribe to our news</p>
-                        <div class="form-wrapper clearfix">
-                            <form action="#no-action" method="get" name="subscribe">
-                                <input type="text" name="email" id="email" class="email-field text-field">
-                                <label for="email">Insert email</label>
-                                <input type="submit" value="Submit" class="btn-submit">
-                            </form>
-                        </div>
-                        <div class="pay-systems">
-                            <ul>
-                                <li><a href="#fake-link"><img src="images/aex.png" alt="card"></a></li>
-                                <li><a href="#fake-link"><img src="images/mastercard.png" alt="card"></a></li>
-                                <li><a href="#fake-link"><img src="images/maestero.png" alt="card"></a></li>
-                                <li><a href="#fake-link"><img src="images/visa.png" alt="card"></a></li>
-                                <li><a href="#fake-link"><img src="images/discover.png" alt="card"></a></li>
-                                <li><a href="#fake-link"><img src="images/paypal.png" alt="card"></a></li>
-                            </ul>
-                        </div>
+                <ul>
+                    <li>Our account</li>
+                    <li><a href="#fake-link">your account</a></li>
+                    <li><a href="#fake-link">personal information</a></li>
+                    <li><a href="#fake-link">addresses</a></li>
+                    <li><a href="#fake-link">discount</a></li>
+                    <li><a href="#fake-link">history</a></li>
+                    <li><a href="#fake-link">addesses</a></li>
+                    <li><a href="#fake-link">search terms</a></li>
+                </ul>
+                <ul>
+                    <li>Our support</li>
+                    <li><a href="#fake-link">site map</a></li>
+                    <li><a href="#fake-link">search terms</a></li>
+                    <li><a href="#fake-link">advanced search</a></li>
+                    <li><a href="#fake-link">site map</a></li>
+                    <li><a href="#fake-link">contact</a></li>
+                    <li><a href="#fake-link">mobile</a></li>
+                    <li><a href="#fake-link">addresses</a></li>
+                </ul>
+                <div class="newsteller">
+                    <h2>newsteller</h2>
+                    <p>Join thousands of other people subscribe to our news</p>
+                    <div class="form-wrapper clearfix">
+                        <form action="#no-action" method="get" name="subscribe">
+                            <input type="text" name="email" id="email" class="email-field text-field">
+                            <label for="email">Insert email</label>
+                            <input type="submit" value="Submit" class="btn-submit">
+                        </form>
                     </div>
-                    <div class="about-us">
-                        <h2>about us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
-                        <h3>Phone: <span>1-999-342-9876</span></h3>
-                        <h3>E-mail: <span class="email">info@surfhouse.com</span></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="sizer clearfix">
-                    <h2>&#169;2014  SURFHOUSE. All rights reserved - Designed by theuncreativelab.com</h2>
-                    <div class="footer-social">
+                    <div class="pay-systems">
                         <ul>
-                            <li><a href="#fake-link"><img src="images/footer-social/facebook.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/twitter.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/pinterest.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/google-plus.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/tumblr.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/instagram.png" alt="social_icon"></a></li>
-                            <li><a href="#fake-link"><img src="images/footer-social/rss.png" alt="social_icon"></a></li>
+                            <li><a href="#fake-link"><img src="images/aex.png" alt="card"></a></li>
+                            <li><a href="#fake-link"><img src="images/mastercard.png" alt="card"></a></li>
+                            <li><a href="#fake-link"><img src="images/maestero.png" alt="card"></a></li>
+                            <li><a href="#fake-link"><img src="images/visa.png" alt="card"></a></li>
+                            <li><a href="#fake-link"><img src="images/discover.png" alt="card"></a></li>
+                            <li><a href="#fake-link"><img src="images/paypal.png" alt="card"></a></li>
                         </ul>
                     </div>
                 </div>
+                <div class="about-us">
+                    <h2>about us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                    <h3>Phone: <span>1-999-342-9876</span></h3>
+                    <h3>E-mail: <span class="email">info@surfhouse.com</span></h3>
+                </div>
             </div>
+        </div>
+        <div class="copyright">
+            <div class="sizer clearfix">
+                <h2>&#169;2014 SURFHOUSE. All rights reserved - Designed by theuncreativelab.com</h2>
+                <div class="footer-social">
+                    <ul>
+                        <li><a href="#fake-link"><img src="images/footer-social/facebook.png" alt="social_icon"></a>
+                        </li>
+                        <li><a href="#fake-link"><img src="images/footer-social/twitter.png" alt="social_icon"></a></li>
+                        <li><a href="#fake-link"><img src="images/footer-social/pinterest.png" alt="social_icon"></a>
+                        </li>
+                        <li><a href="#fake-link"><img src="images/footer-social/google-plus.png" alt="social_icon"></a>
+                        </li>
+                        <li><a href="#fake-link"><img src="images/footer-social/tumblr.png" alt="social_icon"></a></li>
+                        <li><a href="#fake-link"><img src="images/footer-social/instagram.png" alt="social_icon"></a>
+                        </li>
+                        <li><a href="#fake-link"><img src="images/footer-social/rss.png" alt="social_icon"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

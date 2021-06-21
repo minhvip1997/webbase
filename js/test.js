@@ -95,7 +95,7 @@ function renderCartItems(cartItem) {
     `;
     findListOfItem.append(newLi)
 
-    
+
 
     const removeButton = newLi.querySelector('.delete-button')
 
