@@ -62,6 +62,7 @@ function renderOneProduct(product) {
 }
 
 function renderCartItems(cartItem) {
+
     const newLi = document.createElement('table');
     newLi.innerHTML = `
     <tr>
@@ -72,7 +73,7 @@ function renderCartItems(cartItem) {
                                         <th>Subtotal</th>
                                         <th></th>
                                     </tr>
-                                    <tr id="itemproduct">
+                                    <tr id="${cartItem.id}" class="row cart-row">
                                         <td>                                        
                                             <div class="img-sizer-container"><img src="images/item-images/img1-small.jpg" alt="img"></div>
                                         </td>
@@ -80,24 +81,28 @@ function renderCartItems(cartItem) {
                                             <h2>Peeky cropped</h2>
                                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                                         </td>
-                                        <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>
-                                        
+                                        <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>                   
                                         <td class="qty">
-                                        <input class="cart-quantity-input quantity" type="number" id="id_form-0-quantity" name="quantity" min="1" max="5" value="${parseInt(cartItem.quantity)}">${parseInt(cartItem.quantity)}
+                                        <button class="update-button-minus">Minus</button>
+                                        <input type="number" class="form-control item-count" id="id_form-0-quantity" min="0" step="1" value="${cartItem.quantity}">${cartItem.quantity}
+                                        <button class="update-button-add">Add</button>
                                         </td>
                                         </td>
-                                        <td class="checkout-total">€. ${cartItem.total}</td>
+                                        <td class="checkout-total">€. ${cartItem.price * cartItem.quantity}</td>
                                         <td>
                                         <button class="delete-button">delete</button>
-                                        <button class="update-button">Update</button>
                                         </td>
                                     </tr>
+                                    
     `;
     findListOfItem.append(newLi)
 
 
 
+
+
     const removeButton = newLi.querySelector('.delete-button')
+
 
     removeButton.addEventListener('click', event => {
         newLi.remove()
@@ -113,20 +118,19 @@ function renderCartItems(cartItem) {
             })
     });
 
-    const updateButton = newLi.querySelector('.update-button')
-    /*var a = newLi.getElementsByTagName("input")[0].innerText;
-    var b = newLi.getElementsByClassName('checkout-price')[0].innerHTML;
-    const value_input = $("input[class='cart-quantity-input quantity']").val();
-    console.log(value_input)
-    console.log(b)
-    const input = document.getElementById("id_form-0-quantity");
-    let inputValue = input.value;
-    console.log(inputValue)*/
-    updateButton.addEventListener('click', event => {
+    var save = newLi.getElementsByTagName("input")[0].getAttribute('value');
+    console.log(save)
+    localStorage.setItem("quantity", save)
+
+    const addButton = newLi.querySelector('.update-button-add')
+    const minusButton = newLi.querySelector('.update-button-minus')
+
+
+
+    addButton.addEventListener('click', event => {
         const parent = event.target.parentElement;
-        let titlequantity = parent.querySelector('.cart-quantity-input quantity').value;
-        value_input = titlequantity;
-        console.log(value_input);
+        var a = newLi.getElementsByTagName("input")[0].getAttribute('value');
+        a = localStorage.getItem("quantity");
         fetch(`http://localhost:3000/listproduct/${cartItem.id}`, {
             method: 'PATCH',
             headers: {
@@ -134,8 +138,8 @@ function renderCartItems(cartItem) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                quantity: parseInt(value_input),
-                total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * parseInt(value_input)
+                quantity: cartItem.quantity + 1,
+                total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * (cartItem.quantity + 1)
             }),
 
         })
@@ -144,7 +148,30 @@ function renderCartItems(cartItem) {
                 newLi.innerHTML = ''
                 renderAllCartItems(cartItem)
             })
+    });
 
+    minusButton.addEventListener('click', event => {
+        if (cartItem.quantity > 1) {
+            fetch(`http://localhost:3000/listproduct/${cartItem.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    quantity: cartItem.quantity - 1,
+                    total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * (cartItem.quantity - 1)
+                }),
+
+            })
+                .then(response => response.json())
+                .then(results => {
+                    newLi.innerHTML = ''
+                    renderAllCartItems(cartItem)
+                })
+        } else {
+            alert('quantity minimun is 1')
+        }
 
     });
 
@@ -220,7 +247,7 @@ const renderDetails = async () => {
                             </div>
     `
     container.innerHTML = template;
-    var addButton = template.querySelector('.btn-add-to-cart');
+    var addButton = container.querySelector('.btn-add-to-cart');
     addButton.addEventListener('click', event => {
         //findListOfItem.innerHTML = ''
         fetch('http://localhost:3000/listproduct', {

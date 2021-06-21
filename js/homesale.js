@@ -26,7 +26,7 @@ function renderCoursesSale(coursesSale) {
                         </div>
                         <h2 class="item-title">${coursesSale.name}</h2>
                         <h2 class="item-price">€.${coursesSale.price}</h2>
-                        <a href="productpage.html" class="view-product">View product</a>
+                        
         </div>
         `;
     });
