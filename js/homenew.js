@@ -28,12 +28,14 @@ function renderOneProduct(product) {
                         <div class="item-image img-sizer-container">
                             <img src="images/item-images/${product.image}" alt="Image">
                         </div>
+                        <div>
                         <h2 class="item-title">${product.name}</h2>
                         <h2 class="item-price">€.${product.price}</h2>
-                        
-                        <input type='hidden' id='${product.id}'>
+                        </div>
+                        <div>
                         <button class='add-item'>add to cart</button>
                         <a href="productpage.html?id=${product.id}" class="view-product">View product</a>
+        </div>
         </div>
         `
     findDiv.append(newElement);
@@ -78,13 +80,13 @@ function renderCartItems(cartItem) {
                                         <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>                   
                                         <td class="qty">
                                         <button class="update-button-minus">-</button>
-                                        <input type="number" class="form-control item-count" id="id_form-0-quantity" min="0" step="1" value="${cartItem.quantity}" disabled>
+                                        <label>  ${cartItem.quantity}  </label>
                                         <button class="update-button-add">+</button>
                                         </td>
                                         </td>
                                         <td class="checkout-total">€. ${cartItem.price * cartItem.quantity}</td>
                                         <td>
-                                        <button class="delete-button">delete</button>
+                                        <button class="delete-button" style="background-color:red;">delete</button>
                                         </td>
                                     </tr>
                                     
