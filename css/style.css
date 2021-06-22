@@ -79,6 +79,11 @@ input {
 	outline: none;
 }
 
+.add-item {
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
 .header {
 	min-width: 1180px;
 	height: 700px;

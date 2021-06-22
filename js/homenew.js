@@ -39,7 +39,6 @@ function renderOneProduct(product) {
 
     var addButton = newElement.querySelector('.add-item');
     addButton.addEventListener('click', event => {
-        //findListOfItem.innerHTML = ''
         fetch('http://localhost:3000/listproduct', {
             method: 'POST',
             headers: {
@@ -77,7 +76,7 @@ function renderCartItems(cartItem) {
                                         <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>                   
                                         <td class="qty">
                                         <button class="update-button-minus">Minus</button>
-                                        <input type="number" class="form-control item-count" id="id_form-0-quantity" min="0" step="1" value="${cartItem.quantity}">${cartItem.quantity}
+                                        <input type="number" class="form-control item-count" id="id_form-0-quantity" min="0" step="1" value="${cartItem.quantity}" disabled>
                                         <button class="update-button-add">Add</button>
                                         </td>
                                         </td>
@@ -108,8 +107,6 @@ function renderCartItems(cartItem) {
 
     const addButton = newLi.querySelector('.update-button-add')
     const minusButton = newLi.querySelector('.update-button-minus')
-
-
 
     addButton.addEventListener('click', event => {
         fetch(`http://localhost:3000/listproduct/${cartItem.id}`, {
@@ -230,7 +227,6 @@ const renderDetails = async () => {
     container.innerHTML = template;
     var addButton = container.querySelector('.btn-add-to-cart');
     addButton.addEventListener('click', event => {
-        //findListOfItem.innerHTML = ''
         fetch('http://localhost:3000/listproduct', {
             method: 'POST',
             headers: {
@@ -253,7 +249,3 @@ const renderDetails = async () => {
 }
 
 window.addEventListener('DOMContentLoaded', () => renderDetails());
-
-
-
-
