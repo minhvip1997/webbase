@@ -82,6 +82,7 @@ input {
 .add-item {
 	margin-right: 0px;
 	margin-bottom: 0px;
+	background-color: #fb4d01;
 }
 
 .header {
@@ -621,7 +622,8 @@ ul.brand_icons li.last{
 }
 
 .item-title {
-	max-width: 150px;
+	max-width: 100px;
+	
 }
 
 .item-price {
@@ -2073,4 +2075,19 @@ ul.article_links li a{
 	font-family: roboto;
 	font-size: 16px;
 	cursor: pointer;
+}
+@media (max-width:1023px) {
+	.header clearfix {
+		display: block;
+	}
+	.footer {
+		display: none;
+	}
+	.main sizer clearfix{
+		display: block;
+	}
+	.container {
+		display: block;
+	}
+	
 }

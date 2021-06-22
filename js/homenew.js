@@ -30,8 +30,9 @@ function renderOneProduct(product) {
                         </div>
                         <h2 class="item-title">${product.name}</h2>
                         <h2 class="item-price">€.${product.price}</h2>
-                        <button class='add-item'>add to cart</button>
+                        
                         <input type='hidden' id='${product.id}'>
+                        <button class='add-item'>add to cart</button>
                         <a href="productpage.html?id=${product.id}" class="view-product">View product</a>
         </div>
         `
@@ -49,7 +50,8 @@ function renderOneProduct(product) {
                 product_id: product.id,
                 price: product.price,
                 quantity: 1,
-                total: product.price
+                total: product.price,
+                image: "img2-small.jpg"
             })
         })
             .then(response => response.json())
@@ -75,9 +77,9 @@ function renderCartItems(cartItem) {
                                         </td>
                                         <td class="checkout-price"  id="checkout-price">${cartItem.price}</td>                   
                                         <td class="qty">
-                                        <button class="update-button-minus">Minus</button>
+                                        <button class="update-button-minus">-</button>
                                         <input type="number" class="form-control item-count" id="id_form-0-quantity" min="0" step="1" value="${cartItem.quantity}" disabled>
-                                        <button class="update-button-add">Add</button>
+                                        <button class="update-button-add">+</button>
                                         </td>
                                         </td>
                                         <td class="checkout-total">€. ${cartItem.price * cartItem.quantity}</td>
@@ -116,14 +118,14 @@ function renderCartItems(cartItem) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                quantity: cartItem.quantity + 1,
+                quantity: ++cartItem.quantity,
                 total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * (cartItem.quantity + 1)
             }),
 
         })
             .then(response => response.json())
             .then(results => {
-                newLi.innerHTML = ''
+                cartArray.push(results);
                 renderAllCartItems(cartItem)
             })
     });
@@ -137,14 +139,14 @@ function renderCartItems(cartItem) {
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    quantity: cartItem.quantity - 1,
+                    quantity: --cartItem.quantity,
                     total: newLi.getElementsByClassName('checkout-price')[0].innerHTML * (cartItem.quantity - 1)
                 }),
 
             })
                 .then(response => response.json())
                 .then(results => {
-                    newLi.innerHTML = ''
+                    cartArray.push(results);
                     renderAllCartItems(cartItem)
                 })
         } else {

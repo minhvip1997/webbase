@@ -79,68 +79,12 @@
   ],
   "listproduct": [
     {
-      "product_id": 6,
-      "price": 1130.7,
-      "quantity": 2,
-      "total": 2261.4,
-      "image": "img2-small.jpg",
-      "id": 6
-    },
-    {
-      "product_id": 4,
-      "price": 765,
-      "quantity": 2,
-      "total": 1530,
-      "image": "img2-small.jpg",
-      "id": 8
-    },
-    {
-      "product_id": 2,
-      "price": 765,
-      "quantity": 2,
-      "total": 1530,
-      "image": "img2-small.jpg",
-      "id": 9
-    },
-    {
-      "product_id": 5,
-      "price": 230.5,
-      "quantity": 1,
-      "total": 230.5,
-      "image": "img2-small.jpg",
-      "id": 10
-    },
-    {
-      "product_id": 5,
-      "price": 230.5,
-      "quantity": 1,
-      "total": 230.5,
-      "image": "img2-small.jpg",
-      "id": 11
-    },
-    {
-      "product_id": 2,
-      "price": 765,
-      "quantity": 1,
-      "total": 765,
-      "image": "img2-small.jpg",
-      "id": 14
-    },
-    {
-      "product_id": 2,
-      "price": 765,
-      "quantity": 1,
-      "total": 765,
-      "image": "img2-small.jpg",
-      "id": 15
-    },
-    {
       "product_id": 1,
       "price": 770.5,
-      "quantity": 2,
+      "quantity": 3,
       "total": 1541,
       "image": "img2-small.jpg",
-      "id": 16
+      "id": 1
     }
   ]
 }
