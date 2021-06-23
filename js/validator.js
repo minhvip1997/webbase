@@ -1,14 +1,11 @@
 function Validator(options) {
 
-
+    var selectorRules = {};
     function validate(inputElement, rule) {
         var errorMessage = rule.test(inputElement.value);
         var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
-        /*var rules = selectorRules[rule.selector];
-        for(var i=0;i<rules.length;++i){
-            rules[i](inputElement.value)
-        }*/
-        console.log(selectorRules)
+
+        console.log(errorMessage)
         if (errorMessage) {
             errorElement.innerText = errorMessage;
             inputElement.parentElement.classList.add('invalid');
@@ -17,7 +14,7 @@ function Validator(options) {
             inputElement.parentElement.classList.remove('invalid');
         }
     }
-    var selectorRules = {};
+
     var formElement = document.querySelector(options.form);
 
     if (formElement) {
@@ -31,7 +28,7 @@ function Validator(options) {
         }
         options.rules.forEach(function (rule) {
 
-            if (Array.isArray(selectorRules[rule.selector])) {
+            if (Array.isArray(selectorRules[rule.selectors])) {
                 selectorRules[rule.selector].push(rule.test);
             } else {
                 selectorRules[rule.selector] = rule.test;
@@ -39,7 +36,7 @@ function Validator(options) {
             //selectorRules[rule.selector] = rule.test;
             var inputElement = formElement.querySelector(rule.selector);
 
-            console.log(inputElement)
+            //console.log(inputElement)
             if (inputElement) {
                 // Blur
                 inputElement.onblur = function () {

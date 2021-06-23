@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SufHouse</title>
     <link rel="stylesheet" href="css/css-reset.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -46,8 +47,8 @@
                 <div class="info-block">
                     <div class="login-block">
                         <div class="login-header">
-                            <a href="#fake-link">Log in</a>
-                            <a href="#fake-link">Wish list(0)</a>
+                            <a href="#fake-link" class="login">Log in</a>
+                            <a href="#fake-link" class="wishlist">Wish list(0)</a>
                         </div>
                         <div class="cart-info clearfix">
                             <a href="#fake-link" class="cart-logo"><img src="images/icon-cart.png" alt="cart"></a>
@@ -73,7 +74,7 @@
                                 <label for="search" style="display:block">Search</label>
                             </div>
                             <a href="#fake-link" class="clear-icon"><img src="images/x.png" alt="clear-text"></a>
-                            <input type="image" src="images/search-icon.png" alt="image">
+                            <input type="image" src="images/search-icon.png" alt="image" class="search-icon">
                         </form>
                     </div>
                     <div class="welcome-block">
@@ -116,21 +117,35 @@
         <div class="main sizer clearfix">
             <div class="left-side">
                 <div class="main-menu">
-                    <ul>
-                        <li>menu</li>
-                        <li><a href="contact.html">about</a></li>
-                        <li><a href="shop_category_grid.html">apparel</a></li>
-                        <li><a href="shop_category_grid.html">surf apperel</a></li>
-                        <li><a href="shop_category_grid.html">windsurf</a></li>
-                        <li><a href="shop_category_grid.html">kitesurf</a></li>
-                        <li><a href="shop_category_grid.html">accessories</a></li>
-                        <li><a href="shop_category_grid.html">sale</a></li>
-                        <li><a href="shop_category_grid.html">brands</a></li>
-                        <li><a href="shop_category_grid.html">blog</a></li>
-                        <li><a href="shop_category_grid.html">gadgets</a></li>
-                        <li><a href="contact.html">contact</a></li>
-                    </ul>
+                    <nav>
+                        <ul class="nav-list">
+                            <li>
+                                <div class="nav_bars-btn">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+                                        class="svg-inline--fa fa-bars fa-w-14" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>menu</div>
+                            </li>
+                            <li><a href="contact.html" class="nav-link">about</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">apparel</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">surf apperel</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">windsurf</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">kitesurf</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">accessories</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">sale</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">brands</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">blog</a></li>
+                            <li><a href="shop_category_grid.html" class="nav-link">gadgets</a></li>
+                            <li><a href="contact.html" class="nav-link">contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
+
                 <div class="now-open clearfix img-sizer-container">
                     <img src="images/now-bg.jpg" alt="background">
                     <h2>Now is open!</h2>

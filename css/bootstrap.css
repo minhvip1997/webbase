@@ -749,9 +749,16 @@ html {
       width: 970px;
     }
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 1180px) {
     .container {
       width: 1170px;
+    }
+  }
+
+  @media (max-width:1180px) {
+    .row {
+      margin-right: -15px;
+      margin-left: -90px;
     }
   }
   .container-fluid {
